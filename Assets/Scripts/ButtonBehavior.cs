@@ -54,28 +54,29 @@ public class ButtonBehavior : MonoBehaviour
         }
     }
 
-    void GetCurrent()
+    public void GetCurrent()
     {
         coordinates.text = String.Format("Current Longitude: {0}\nCurrent Latitude: {1}\nCurrent Altitude: {2}", Input.location.lastData.longitude, Input.location.lastData.latitude, Input.location.lastData.altitude);
     }
 
-    void SetDestination()
+    public void SetDestination()
     {
         _lastCoordinates.latitude = Input.location.lastData.latitude;
         _lastCoordinates.longitude = Input.location.lastData.longitude;
         _lastCoordinates.altitude = Input.location.lastData.altitude;
     }
 
-    void GetDistance()
+    public void GetDistance()
     {
         distance.text = String.Format("Distance: {0} m", Math.Abs(_lastCoordinates.latitude - Input.location.lastData.latitude +
                                                                 _lastCoordinates.longitude - Input.location.lastData.longitude +
                                                                 _lastCoordinates.altitude - Input.location.lastData.altitude) / 3);
     }
 
-    void DrawObject()
+    public void DrawObject()
     {
         _clone = Instantiate(marker, transform);
         _clone.transform.parent = null;
+        marker.GetComponent<Canvas>().GetComponent<Text>().text = Console.ReadLine();
     }
 }
