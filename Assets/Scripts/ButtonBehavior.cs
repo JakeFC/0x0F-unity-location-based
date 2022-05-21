@@ -25,7 +25,7 @@ public class ButtonBehavior : MonoBehaviour
             yield break;
 
         // Starts the location service.
-        Input.location.Start(0.00001f, 0.1f);
+        Input.location.Start(1f, 0.5f);
 
         // Waits until the location service initializes
         int maxWait = 20;
