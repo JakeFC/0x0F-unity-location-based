@@ -8,6 +8,7 @@ public class ButtonBehavior : MonoBehaviour
 {
     public Text coordinates;
     public Text distance;
+    public Text unityPosition;
     public GameObject marker;
     struct coords {
         public float latitude;
@@ -57,6 +58,7 @@ public class ButtonBehavior : MonoBehaviour
     public void GetCurrent()
     {
         coordinates.text = String.Format("Current Longitude: {0}\nCurrent Latitude: {1}\nCurrent Altitude: {2}", Input.location.lastData.longitude, Input.location.lastData.latitude, Input.location.lastData.altitude);
+        unityPosition.text = String.Format("Unity Local Position {0}", GPSEncoder.GPSToUCS(Input.location.lastData.latitude, Input.location.lastData.longitude));
     }
 
     public void SetDestination()
